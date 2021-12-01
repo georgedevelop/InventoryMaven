@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="553.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProductFormController">
+   <children>
+      <VBox layoutX="40.0" layoutY="40.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <VBox maxWidth="500.0" prefHeight="200.0" prefWidth="300.0">
+                     <children>
+                        <HBox prefHeight="57.0" prefWidth="335.0">
+                           <children>
+                              <Label text="Add Product">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="335.0">
+                           <children>
+                              <Label prefWidth="100.0" text="ID" />
+                              <TextField fx:id="id" editable="false" focusTraversable="false" promptText="Auto Gen- Disabled">
+                                 <font>
+                                    <Font name="System Italic" size="12.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="67.0" prefHeight="40.0" prefWidth="335.0">
+                           <children>
+                              <Label prefWidth="100.0" text="Name" />
+                              <TextField fx:id="name" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="107.0" prefHeight="40.0" prefWidth="335.0">
+                           <children>
+                              <Label prefWidth="100.0" text="Price" />
+                              <TextField fx:id="price" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="147.0" prefHeight="40.0" prefWidth="335.0">
+                           <children>
+                              <Label prefWidth="100.0" text="Inv" />
+                              <TextField fx:id="stock" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="187.0" prefHeight="40.0" prefWidth="335.0">
+                           <children>
+                              <Label prefWidth="100.0" text="Max" />
+                              <TextField fx:id="max" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="227.0" prefHeight="40.0" prefWidth="335.0">
+                           <children>
+                              <Label prefWidth="100.0" text="Min" />
+                              <TextField fx:id="min" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="BOTTOM_RIGHT" prefHeight="34.0" prefWidth="285.0">
+                           <children>
+                              <HBox alignment="BOTTOM_LEFT" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label prefWidth="100.0" text="All Parts">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <TextField fx:id="partSearchTextField" maxWidth="200.0" prefHeight="25.0" prefWidth="158.0" promptText="Search by Part ID or Name" HBox.hgrow="ALWAYS" />
+                           </children>
+                        </HBox>
+                        <TableView fx:id="partTableView" maxHeight="1.7976931348623157E308" prefHeight="200.0" prefWidth="418.0" VBox.vgrow="ALWAYS">
+                           <columns>
+                              <TableColumn fx:id="idColumnPartTableView" prefWidth="62.0" text="Part ID" />
+                              <TableColumn fx:id="nameColumnPartTableView" prefWidth="91.0" text="Part Name" />
+                              <TableColumn fx:id="inventoryColumnPartTableView" prefWidth="138.0" text="Inventory Level" />
+                              <TableColumn fx:id="priceColumnPartTableView" prefWidth="227.0" text="Price/Cost per Unit" />
+                           </columns>
+                        </TableView>
+                        <HBox alignment="TOP_RIGHT">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#handleAddButton" prefHeight="25.0" prefWidth="54.0" text="Add" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="BOTTOM_LEFT" prefHeight="22.0" prefWidth="520.0">
+                           <children>
+                              <Label text="Associated Parts">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <TableView fx:id="assPartTableView" maxHeight="1.7976931348623157E308" prefHeight="200.0" prefWidth="418.0" VBox.vgrow="ALWAYS">
+                           <columns>
+                              <TableColumn fx:id="assIdColumnPartTableView" prefWidth="62.0" text="Part ID" />
+                              <TableColumn fx:id="assNameColumnPartTableView" prefWidth="90.0" text="Part Name" />
+                              <TableColumn fx:id="assInventoryColumnPartTableView" prefWidth="124.0" text="Inventory Level" />
+                              <TableColumn fx:id="assPriceColumnPartTableView" prefWidth="142.0" text="Price/Cost per Unit" />
+                           </columns>
+                        </TableView>
+                        <HBox alignment="TOP_RIGHT" prefHeight="41.0" prefWidth="520.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#handleRemoveAssButton" prefHeight="25.0" prefWidth="200.0" text="Remove Associated Part" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="37.0" prefWidth="670.0" spacing="20.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handleSaveButton" prefHeight="25.0" prefWidth="100.0" text="Save" />
+                  <Button mnemonicParsing="false" onAction="#handleCancelButton" prefHeight="25.0" prefWidth="100.0" text="Cancel" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
